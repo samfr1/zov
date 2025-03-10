@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Крутой сайт с анимациями</title>
+  <style>
+    /* Основной стиль для темного оформления и градиентного фона */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #121212, #1f1f1f);
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+    /* Контейнер для контента */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+    /* Анимация появления элементов */
+    .animate {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Анимированные декоративные элементы */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: float 10s infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+    /* Стилизация блока капчи */
+    .captcha-container {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Декоративные анимированные формы -->
+  <div class="shape" style="width: 200px; height: 200px; background: radial-gradient(circle, #ff0080, transparent); top: 10%; left: 15%; animation-duration: 12s;"></div>
+  <div class="shape" style="width: 150px; height: 150px; background: radial-gradient(circle, #00eaff, transparent); top: 60%; right: 10%; animation-duration: 15s;"></div>
+  <div class="shape" style="width: 250px; height: 250px; background: radial-gradient(circle, #7e00ff, transparent); bottom: 10%; left: 30%; animation-duration: 18s;"></div>
+
+  <div class="container">
+    <h1 class="animate" style="animation-delay: 0.5s;">Добро пожаловать на Крутой Сайт</h1>
+    <p class="animate" style="animation-delay: 1s;">Анимации, современные градиенты и капча с токеном</p>
+    
+    <!-- Блок капчи с обязательным токеном -->
+    <div class="captcha-container animate" style="animation-delay: 1.5s;">
+      ::CAPTCHA_BOX::
+    </div>
+    
+    <!-- Адрес вашей кастомной страницы -->
+    <p class="animate" style="animation-delay: 2s;">
+      Address of customized page: http://example.com/your-custom-page.html
+    </p>
+  </div>
+</body>
+</html>
