@@ -1,89 +1,153 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Крутой сайт с анимациями</title>
-  <style>
-    /* Основной стиль для темного оформления и градиентного фона */
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(45deg, #121212, #1f1f1f);
-      color: #fff;
-      font-family: 'Arial', sans-serif;
-      overflow: hidden;
-    }
-    /* Контейнер для контента */
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      position: relative;
-      text-align: center;
-      z-index: 1;
-    }
-    /* Анимация появления элементов */
-    .animate {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    /* Анимированные декоративные элементы */
-    .shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.2;
-      animation: float 10s infinite;
-    }
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0) rotate(360deg);
-      }
-    }
-    /* Стилизация блока капчи */
-    .captcha-container {
-      margin-top: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-    }
-  </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="./icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Один момент…</title>
+    <style>
+        *,
+        :before,
+        :after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(9, 9, 11);
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .content-wrapper {
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight {
+            background: linear-gradient(45deg, #00dc82, #36e4da 50%, #0047e1);
+            bottom: -30vh;
+            filter: blur(20vh);
+            height: 40vh;
+            position: fixed;
+            left: 0;
+            right: 0;
+            animation: breathing 5s ease-in-out infinite;
+        }
+
+        @keyframes breathing {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .error-container {
+            z-index: 10;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .verification-block {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .theuchi-logo {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .captcha-box {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .info-list li {
+            color: #ffffff;
+            opacity: 0.7;
+            font-size: 0.85rem;
+            margin: 5px 0;
+        }
+    </style>
+    <meta http-equiv="refresh" content="390">
 </head>
 <body>
-  <!-- Декоративные анимированные формы -->
-  <div class="shape" style="width: 200px; height: 200px; background: radial-gradient(circle, #ff0080, transparent); top: 10%; left: 15%; animation-duration: 12s;"></div>
-  <div class="shape" style="width: 150px; height: 150px; background: radial-gradient(circle, #00eaff, transparent); top: 60%; right: 10%; animation-duration: 15s;"></div>
-  <div class="shape" style="width: 250px; height: 250px; background: radial-gradient(circle, #7e00ff, transparent); bottom: 10%; left: 30%; animation-duration: 18s;"></div>
-
-  <div class="container">
-    <h1 class="animate" style="animation-delay: 0.5s;">Добро пожаловать на Крутой Сайт</h1>
-    <p class="animate" style="animation-delay: 1s;">Анимации, современные градиенты и капча с токеном</p>
-    
-    <!-- Блок капчи с обязательным токеном -->
-    <div class="captcha-container animate" style="animation-delay: 1.5s;">
-      ::CAPTCHA_BOX::
+    <div class="content-wrapper">
+        <div class="spotlight"></div>
+        <div class="error-container">
+            <h1 class="error-code">Theuchi AntiBot</h1>
+            <div class="verification-block">
+                <img src="./logo.png" alt="Theuchi Logo" class="theuchi-logo">
+                <div class="captcha-box">
+                    ::CAPTCHA_BOX::
+                </div>
+            </div>
+            <ul class="info-list">
+                <li>Cloudflare RAY ID: ::RAY_ID::</li>
+                <li>YOUR IP: ::CLIENT_IP::</li>
+                <li>Performance & Security by Cloudflare</li>
+            </ul>
+        </div>
     </div>
-    
-    <!-- Адрес вашей кастомной страницы -->
-    <p class="animate" style="animation-delay: 2s;">
-      Address of customized page: http://example.com/your-custom-page.html
-    </p>
-  </div>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function setRandomGradient() {
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+            const color3 = getRandomColor();
+            document.querySelector('.spotlight').style.background = `linear-gradient(45deg, ${color1}, ${color2} 50%, ${color3})`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setRandomGradient();
+            setInterval(setRandomGradient, 5000);
+        });
+    </script>
 </body>
 </html>
